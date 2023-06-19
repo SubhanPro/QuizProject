@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}<title></title>{% endblock %}
+{% block content %}
+<br>
+<div class="container">
+<center><h1 class="text-light">{{question.topic.name}}</h1></center>
+<br>
+<div class="card bg-dark text-light">
+    <div class="card-header">
+        {{question.topic.name}}
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">{{question.name}}</h5>
+      
+      <form method="post">
+        {% csrf_token %}
+        {% for choice in question.choice.all %}
+        <input type="radio" name="choice" value="{{choice.id}}">{{choice.name}}
+        {% endfor %} 
+        <button type="submit">Send</button>
+      </form>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+{% endblock %}

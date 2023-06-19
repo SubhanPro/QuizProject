@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}<title></title>{% endblock %}
+{% block content %}
+<br>
+<div class="container">
+    <center>
+    <h1 class="text-light">Topics:</h1>
+</center>
+<br>
+    {% for topic in topics %}
+    <div class="card mb-5 mx-5 bg-dark text-light" style="width: 18rem; float: left;" color="red">
+        <img src="{{topic.image.url}}" class="card-img-top" alt="">
+        <div class="card-body p-0">
+            <center>
+          <h5 class="card-title m-2">{{topic.name}}</h5>
+        </center>
+          <a href="{% url 'questions' topic.id 0 %}" class="btn btn-primary mt-2" style="width: 100%;">Start</a>
+        </div>
+      </div>
+      {% endfor %}
+</div>
+{% endblock %}
+
+
+
+
+
+
+
+

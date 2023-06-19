@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}{% endblock %}
+{% block content %}
+    <center>
+    <h1 class="text-light">Login</h1>
+  </center>
+      <div>
+          {% if messages %}
+      <ul class="messages">
+          {% for message in messages %}
+          <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+          {% endfor %}
+      </ul>
+      {% endif %}
+        </div>
+          <div class="container text-light">
+              <form method = "post">
+                {% csrf_token %}
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Username</label>
+                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="username">
+                    <div id="emailHelp" class="form-text text-light">We'll never share your email with anyone else.</div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+                  </div>
+                  <button type="submit" class="btn btn-primary">Log in</button>
+                  <a class="btn btn-primary  mx-5" href="{% url 'register' %}">Dont have account? Click here to create one!</a>
+                </form>
+          </div>
+{% endblock %}
